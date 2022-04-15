@@ -57,16 +57,17 @@ const Item = ({ item, onPress, backgroundColor, textColor }) => (
 				<View style={styles.imgContainer}>
 					<Image source={{ uri: item.image }} style={styles.image} />
 				</View>
-
-				<Text style={[styles.title, textColor]}>{item.nombre}</Text>
-				<Text style={[styles.description, textColor]}>
-					<TextTruncate
-						line={3}
-						text={item.description}
-						element="span"
-						truncateText=".."
-					/>
-				</Text>
+				<View style={styles.textContainer}>
+					<Text style={[styles.title, textColor]}>{item.nombre}</Text>
+					<Text style={[styles.description, textColor]}>
+						<TextTruncate
+							line={3}
+							text={item.description}
+							element="span"
+							truncateText=".."
+						/>
+					</Text>
+				</View>
 			</View>
 		</View>
 	</TouchableOpacity>
@@ -122,12 +123,17 @@ const styles = StyleSheet.create({
 		padding: 20,
 		marginVertical: 8,
 		borderRadius: 30,
+		display: "flex",
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-between",
 	},
 	title: {
 		paddingTop: "20px",
 		fontSize: 30,
-		flex: 1,
+		flex: 2,
 		margin: 3,
+		width: "auto",
 	},
 	list: {
 		display: "flex",
@@ -136,23 +142,42 @@ const styles = StyleSheet.create({
 		width: "80%",
 	},
 	image: {
-		width: "auto",
-		height: 300,
+		width: 150,
+		height: 150,
 		borderRadius: 30,
-		objectFit: "cover",
+		objectFit: "fill",
 	},
 	items: {
 		display: "flex",
 		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-between",
 		flex: 1,
 		padding: 1,
 	},
 	infoContainer: {
 		display: "flex",
-		flexDirection: "column",
+		flexDirection: "row",
 		flex: 1,
 	},
-	imgContainer: {},
+	imgContainer: {
+		width: "auto",
+		display: "flex",
+		flexDirection: "column",
+		justifyContent: "center",
+		alignItems: "center",
+	},
+	textContainer: {
+		display: "flex",
+		flexDirection: "column",
+		padding: 10,
+		flex: 1,
+		width: "auto",
+	},
+	description: {
+		fontSize: 15,
+		flex: 1,
+	},
 });
 
 export default AboutScreen;
