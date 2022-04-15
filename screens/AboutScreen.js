@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
 		width: "auto",
 		height: 300,
 		borderRadius: 30,
-		objectFit: "scale-down",
+		objectFit: "cover",
 	},
 	items: {
 		display: "flex",
