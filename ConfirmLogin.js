@@ -10,7 +10,7 @@ const LoginConfirm = () => {
 		<NavigationContainer>
 			<LoginStackNavigator.Navigator initialRouteName="Login">
 				<LoginStackNavigator.Screen name="Login" component={Login} />
-				<LoginStackNavigator.Screen name="Home" component={Navegation} />
+				<LoginStackNavigator.Screen name="App" component={Navegation} />
 			</LoginStackNavigator.Navigator>
 		</NavigationContainer>
 	);

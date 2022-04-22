@@ -20,8 +20,9 @@ const Login = ({ navigation }) => {
 	const [error, setError] = useState("");
 
 	const ConfirmLogin = ({ user, pass }) => {
+		console.log("user: ", user, "pass: ", pass);
 		if (user === usuarioPrueba.user && pass === usuarioPrueba.pass) {
-			navigation.navigate("Home", {
+			navigation.navigate("App", {
 				user: user,
 				pass: pass,
 			});
@@ -34,57 +35,60 @@ const Login = ({ navigation }) => {
 
 	return (
 		<View style={styles.container}>
-			<Text style={styles.text}>Login</Text>
-			<Image
-				style={styles.logo}
-				source={{
-					uri: "https://images-ext-1.discordapp.net/external/iGYsRDFFAYfK47weCFiTkRJJAiSzbjIGgMeJ_SyWnoE/%3F_nc_cat%3D106%26ccb%3D1-5%26_nc_sid%3D09cbfe%26_nc_ohc%3DoChNNpHeXL8AX8kiHAW%26_nc_pt%3D1%26_nc_ht%3Dscontent.faqp3-1.fna%26oh%3D00_AT_GEeFirNqp3f3hRZ6sJM28pyWDDPLp-6kzJMwKeDNpvA%26oe%3D626D1E1B/https/scontent.faqp3-1.fna.fbcdn.net/v/t1.18169-9/225255_582998048419311_1142575426_n.jpg?width=468&height=468",
-				}}
-			/>
-			<TextInput
-				style={{
-					height: 40,
-					borderColor: "blue",
-					borderRadius: "10px",
-					padding: "5px",
-					margin: "10px",
-					borderWidth: "1px",
-				}}
-				placeholder="Usuario"
-				onChangeText={(text) => setText(text)}
-				value={text}
-			/>
+			<View style={styles.loginContainer}>
+				<Text style={styles.text}>Login</Text>
+				<Image
+					style={styles.logo}
+					source={{
+						uri: "https://images-ext-1.discordapp.net/external/iGYsRDFFAYfK47weCFiTkRJJAiSzbjIGgMeJ_SyWnoE/%3F_nc_cat%3D106%26ccb%3D1-5%26_nc_sid%3D09cbfe%26_nc_ohc%3DoChNNpHeXL8AX8kiHAW%26_nc_pt%3D1%26_nc_ht%3Dscontent.faqp3-1.fna%26oh%3D00_AT_GEeFirNqp3f3hRZ6sJM28pyWDDPLp-6kzJMwKeDNpvA%26oe%3D626D1E1B/https/scontent.faqp3-1.fna.fbcdn.net/v/t1.18169-9/225255_582998048419311_1142575426_n.jpg?width=468&height=468",
+					}}
+				/>
+				<TextInput
+					style={{
+						height: 40,
+						borderColor: "blue",
+						borderRadius: "10px",
+						padding: "5px",
+						margin: "10px",
+						borderWidth: "1px",
+					}}
+					placeholder="Usuario"
+					onChangeText={(text) => setText(text)}
+					value={text}
+				/>
 
-			<TextInput
-				style={{
-					height: 40,
-					borderColor: "blue",
-					borderRadius: "10px",
-					padding: "5px",
-					margin: "10px",
-					borderWidth: "1px",
-				}}
-				placeholder="Contraseña"
-				onChangeText={(pass) => setPass(pass)}
-				secureTextEntry={true}
-				value={pass}
-			/>
+				<TextInput
+					style={{
+						height: 40,
+						borderColor: "blue",
+						borderRadius: "10px",
+						padding: "5px",
+						margin: "10px",
+						borderWidth: "1px",
+					}}
+					placeholder="Contraseña"
+					onChangeText={(pass) => setPass(pass)}
+					secureTextEntry={true}
+					value={pass}
+				/>
 
-			<Pressable
-				onPress={() => {
-					ConfirmLogin(text, pass);
-				}}
-				style={({ pressed }) => [
-					{
-						backgroundColor: pressed ? "rgb(210, 230, 255)" : "white",
-					},
-					styles.wrapperCustom,
-				]}>
-				{({ pressed }) => (
-					<Text style={styles.textBtn}>{pressed ? "Pressed!" : "Login"}</Text>
-				)}
-			</Pressable>
-			<View>{error && <Text style={styles.textError}>{error}</Text>}</View>
+				<Pressable
+					onPress={() => {
+						console.log("ConfirmLogin", text, pass);
+						ConfirmLogin({ user: text, pass });
+					}}
+					style={({ pressed }) => [
+						{
+							backgroundColor: pressed ? "rgb(210, 230, 255)" : "white",
+						},
+						styles.wrapperCustom,
+					]}>
+					{({ pressed }) => (
+						<Text style={styles.textBtn}>{pressed ? "Pressed!" : "Login"}</Text>
+					)}
+				</Pressable>
+				<View>{error && <Text style={styles.textError}>{error}</Text>}</View>
+			</View>
 		</View>
 	);
 };
@@ -93,6 +97,12 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		justifyContent: "center",
+		alignItems: "center",
+	},
+	loginContainer: {
+		flex: 1,
+		justifyContent: "center",
+		alignItems: "center",
 	},
 	textError: {
 		color: "red",
@@ -142,8 +152,9 @@ const styles = StyleSheet.create({
 		backgroundColor: "black",
 		borderRadius: 50,
 		padding: 6,
-		width: "50%",
+		width: "100%",
 		alignSelf: "center",
+		margin: "10px",
 	},
 });
 
