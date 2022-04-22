@@ -1,4 +1,4 @@
-# Lab05-Multiplataforma-Navegation-FlatList
+# Lab06-Multiplataforma-Navegation-FlatList
 
 Creditos:
 
