@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 //Icons
 import { MaterialCommunityIcons, Entypo } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 //screens
 import HomeScreen from "./screens/HomeScreen";
@@ -13,6 +14,7 @@ import AboutScreen from "./screens/AboutScreen";
 import Movie_principal from "./screens/Stack_Movie/Principal";
 import Movie_View from "./screens/Stack_Movie/View";
 import Player from "./app/components/Reproductor/Player";
+import Trailer from "./app/components/Reproductor/Trailer";
 
 //Home Stack
 
@@ -38,6 +40,7 @@ const MovieStack = () => {
 			/>
 			<MovieStackNavigator.Screen name="Movie_View" component={Movie_View} />
 			<MovieStackNavigator.Screen name="Reproductor" component={Player} />
+			<MovieStackNavigator.Screen name="Trailer" component={Trailer} />
 		</MovieStackNavigator.Navigator>
 	);
 };
@@ -76,7 +79,7 @@ const MyTabs = () => {
 				options={{
 					tabBarLabel: "Creditos",
 					tabBarIcon: ({ color, size }) => (
-						<Entypo name="info-with-circle" size={size} color={color} />
+						<FontAwesome5 name="cat" size={size} color={color} />
 					),
 				}}
 			/>

@@ -14,7 +14,7 @@ const Player = () => {
 				source={{
 					uri: "http://d23dyxeqlo5psv.cloudfront.net/big_buck_bunny.mp4",
 				}}
-				useNative
+				useNativeControls
 				resizeMode="contain"
 				isLooping
 				onPlaybackStatusUpdate={setStatus}
@@ -24,26 +24,6 @@ const Player = () => {
 					title="Play"
 					onPress={() => video.current.playFromPositionAsync(5000)}
 				/>
-				<Button title="Pause" onPress={() => video.current.pauseAsync()} />
-				<Button title="Stop" onPress={() => video.current.stopAsync()} />
-				<Button title="Seek" onPress={() => video.current.seekAsync(5000)} />
-				<Button
-					title="Mute"
-					onPress={() => video.current.setIsMutedAsync(true)}
-				/>
-				<Button
-					title="Unmute"
-					onPress={() => video.current.setIsMutedAsync(false)}
-				/>
-				<Button
-					title="Fullscreen"
-					onPress={() => video.current.presentFullscreenPlayer()}
-				/>
-				<Button
-					title="Exit Fullscreen"
-					onPress={() => video.current.dismissFullscreenPlayer()}
-				/>
-				<Button title="Status" onPress={() => console.log(status)} />
 			</View>
 		</View>
 	);
@@ -55,10 +35,16 @@ const styles = StyleSheet.create({
 		backgroundColor: "#fff",
 		alignItems: "center",
 		justifyContent: "center",
+		width: "100vw",
 	},
 	video: {
 		flex: 1,
+		width: "100%",
 		alignSelf: "scretch",
+	},
+	buttons: {
+		flex: 1,
+		alignItems: "center",
 	},
 });
 

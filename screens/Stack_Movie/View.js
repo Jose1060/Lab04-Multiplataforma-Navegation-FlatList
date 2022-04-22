@@ -47,6 +47,15 @@ const Movie_View = ({ route, navigation }) => {
 						onPress={() => navigation.navigate("Reproductor")}>
 						<Text style={styles.buttonText}>Play</Text>
 					</TouchableOpacity>
+					<TouchableOpacity
+						style={styles.button}
+						onPress={() =>
+							navigation.navigate("Trailer", {
+								videoURL: data.movie.embedUrls,
+							})
+						}>
+						<Text style={styles.buttonText}>Trailer</Text>
+					</TouchableOpacity>
 				</View>
 				<View style={styles.infoContainer}>
 					<View style={styles.header}>
