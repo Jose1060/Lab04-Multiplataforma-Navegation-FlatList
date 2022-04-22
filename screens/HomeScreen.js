@@ -1,12 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { Text, View } from "react-native";
 
-const HomeScreen = ({ route }) => {
+const HomeScreen = () => {
 	return (
 		<View>
 			<Text style={{ fontSize: 30, textAlign: "center", marginTop: "20%" }}>
-				Home Screen
+				Bienvenido
 			</Text>
 		</View>
 	);

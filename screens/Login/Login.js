@@ -19,13 +19,10 @@ const Login = ({ navigation }) => {
 	const [pass, setPass] = useState("");
 	const [error, setError] = useState("");
 
-	const ConfirmLogin = ({ user, pass }) => {
-		console.log("user: ", user, "pass: ", pass);
-		if (user === usuarioPrueba.user && pass === usuarioPrueba.pass) {
-			navigation.navigate("App", {
-				user: user,
-				pass: pass,
-			});
+	const ConfirmLogin = ({ user, password }) => {
+		console.log("user: ", user, "pass: ", password);
+		if (user === usuarioPrueba.user && password === usuarioPrueba.pass) {
+			navigation.navigate("App");
 			setText("");
 			setPass("");
 		} else {
@@ -40,7 +37,7 @@ const Login = ({ navigation }) => {
 				<Image
 					style={styles.logo}
 					source={{
-						uri: "https://images-ext-1.discordapp.net/external/iGYsRDFFAYfK47weCFiTkRJJAiSzbjIGgMeJ_SyWnoE/%3F_nc_cat%3D106%26ccb%3D1-5%26_nc_sid%3D09cbfe%26_nc_ohc%3DoChNNpHeXL8AX8kiHAW%26_nc_pt%3D1%26_nc_ht%3Dscontent.faqp3-1.fna%26oh%3D00_AT_GEeFirNqp3f3hRZ6sJM28pyWDDPLp-6kzJMwKeDNpvA%26oe%3D626D1E1B/https/scontent.faqp3-1.fna.fbcdn.net/v/t1.18169-9/225255_582998048419311_1142575426_n.jpg?width=468&height=468",
+						uri: "https://www.lavanguardia.com/files/article_main_microformat/uploads/2021/02/22/6033d662f3b71.png",
 					}}
 				/>
 				<TextInput
@@ -49,8 +46,10 @@ const Login = ({ navigation }) => {
 						borderColor: "blue",
 						borderRadius: "10px",
 						padding: "5px",
+						paddingLeft: "15px",
 						margin: "10px",
 						borderWidth: "1px",
+						backgroundColor: "white",
 					}}
 					placeholder="Usuario"
 					onChangeText={(text) => setText(text)}
@@ -62,9 +61,11 @@ const Login = ({ navigation }) => {
 						height: 40,
 						borderColor: "blue",
 						borderRadius: "10px",
+						paddingLeft: "15px",
 						padding: "5px",
 						margin: "10px",
 						borderWidth: "1px",
+						backgroundColor: "white",
 					}}
 					placeholder="Contraseña"
 					onChangeText={(pass) => setPass(pass)}
@@ -75,7 +76,7 @@ const Login = ({ navigation }) => {
 				<Pressable
 					onPress={() => {
 						console.log("ConfirmLogin", text, pass);
-						ConfirmLogin({ user: text, pass });
+						ConfirmLogin({ user: text, password: pass });
 					}}
 					style={({ pressed }) => [
 						{
@@ -87,7 +88,13 @@ const Login = ({ navigation }) => {
 						<Text style={styles.textBtn}>{pressed ? "Pressed!" : "Login"}</Text>
 					)}
 				</Pressable>
-				<View>{error && <Text style={styles.textError}>{error}</Text>}</View>
+
+				{error && (
+					<View style={styles.errorContainer}>
+						{" "}
+						<Text style={styles.textError}>{error}</Text>
+					</View>
+				)}
 			</View>
 		</View>
 	);
@@ -98,6 +105,13 @@ const styles = StyleSheet.create({
 		flex: 1,
 		justifyContent: "center",
 		alignItems: "center",
+		backgroundColor: "#043465",
+	},
+	errorContainer: {
+		marginTop: "10px",
+		backgroundColor: "white",
+		borderRadius: "10px",
+		padding: "5px",
 	},
 	loginContainer: {
 		flex: 1,
@@ -121,9 +135,10 @@ const styles = StyleSheet.create({
 		backgroundColor: "#f9f9f9",
 	},
 	logo: {
-		width: 266,
+		width: 366,
 		height: 158,
 		alignSelf: "center",
+		margin: "20px",
 	},
 	text: {
 		// Text styles
