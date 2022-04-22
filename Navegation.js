@@ -85,11 +85,7 @@ const MyTabs = () => {
 };
 
 const Navegation = () => {
-	return (
-		<NavigationContainer>
-			<MyTabs />
-		</NavigationContainer>
-	);
+	return <MyTabs />;
 };
 
 export default Navegation;
