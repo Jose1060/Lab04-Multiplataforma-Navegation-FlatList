@@ -12,6 +12,7 @@ import AboutScreen from "./screens/AboutScreen";
 //screens Stack Movie
 import Movie_principal from "./screens/Stack_Movie/Principal";
 import Movie_View from "./screens/Stack_Movie/View";
+import Player from "./app/components/Reproductor/Player";
 
 //Home Stack
 
@@ -36,6 +37,7 @@ const MovieStack = () => {
 				component={Movie_principal}
 			/>
 			<MovieStackNavigator.Screen name="Movie_View" component={Movie_View} />
+			<MovieStackNavigator.Screen name="Reproductor" component={Player} />
 		</MovieStackNavigator.Navigator>
 	);
 };
